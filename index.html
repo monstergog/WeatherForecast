@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <title>Weather Forecast</title>
+  </head>
+
+  <body>
+    <header><h1>Weather Dashboard</h1></header>
+
+    <main>
+      <aside>
+        <form>
+          <h2>Search for a City:</h2>
+          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm"><br>
+          <input type="submit" class="btn" value="Search"><br>
+        </form>
+        <hr>
+        <button class="btn btn-light">Atlanta</button>
+        <button class="btn btn-light">Denver</button>
+        <button class="btn btn-light">Seattle</button>
+        <button class="btn btn-light">San Francisco</button>
+        <button class="btn btn-light">Orlando</button>
+        <button class="btn btn-light">New York</button>
+        <button class="btn btn-light">Chicago</button>
+        <button class="btn btn-light">Austin</button>
+      </aside>
+
+      <section>
+        <div id="today">
+          <h3>(CITY + DATE HERE)</h3>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+        
+        <h4>5-Day Forecast:</h4>
+        <div id="fiveDay">
+          <div id="day1" class="card">
+            <h5>Date</h5>
+            <p class="icon"></p>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </div>
+          <div id="day2" class="card">
+            <h5>Date</h5>
+            <p class="icon"></p>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </div>
+          <div id="day3" class="card">
+            <h5>Date</h5>
+            <p class="icon"></p>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </div>
+          <div id="day4" class="card">
+            <h5>Date</h5>
+            <p class="icon"></p>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </div>
+          <div id="day5" class="card">
+            <h5>Date</h5>
+            <p class="icon"></p>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
