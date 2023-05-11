@@ -68,15 +68,18 @@ section > * {
     border: 2px solid silver;
     padding-left: 1%;
     background-color: #14121d;
+    visibility: hidden;
 }
 
 h4 {
     padding-left: 1%;
+    visibility: hidden;
 }
 
 #fiveDay {
     display: flex;
     flex-wrap: wrap;
+    visibility: hidden;
 }
 
 #fiveDay > * {

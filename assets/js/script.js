@@ -1,6 +1,7 @@
 var submitCity = document.querySelector('form');
 var cityInput = document.querySelector('#submitCity');
 var today = document.querySelector('#today');
+var h4 = document.querySelector('h4');
 var fiveDay = document.querySelector('#fiveDay');
 var cityButtons = document.querySelectorAll('button');
 
@@ -11,6 +12,8 @@ var weatherAPIKey = prompt('Submit OpenWeather API Key:');
 var citySearched;
 var latitude;
 var longitude;
+
+init();
 
 cityButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -29,6 +32,7 @@ submitCity.addEventListener('submit', function(event) {
 });
 
 async function renderWeather(city) {
+
     await fetch(geocode + city + '&limit=1&appid=' + weatherAPIKey)
     .then(function (response) {
         return response.json();
@@ -37,7 +41,6 @@ async function renderWeather(city) {
         citySearched = data[0].name;
         latitude = data[0].lat;
         longitude = data[0].lon;
-        console.log(data[0].name);
     });
 
     await fetch(currentWeather + '&lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherAPIKey)
@@ -45,7 +48,6 @@ async function renderWeather(city) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
         today.children[0].textContent = citySearched + dayjs().format(' (MM/DD/YYYY)');
         today.children[1].src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
         today.children[2].textContent = `Temp: ${data.main.temp}\xb0F`;
@@ -58,7 +60,6 @@ async function renderWeather(city) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
         for (var i = 0; i < 5; i++) {
             fiveDay.children[i].children[0].textContent = dayjs().add(i+1, 'day').format('(MM/DD/YYYY)');
             fiveDay.children[i].children[1].src = 'https://openweathermap.org/img/wn/' + data.list[i * 8].weather[0].icon + '@2x.png'
@@ -67,4 +68,18 @@ async function renderWeather(city) {
             fiveDay.children[i].children[4].textContent = `Humidity: ${data.list[i * 8].main.humidity} %`;
         }
     });
+
+    today.setAttribute('style', 'visibility: visible');
+    h4.setAttribute('style', 'visibility: visible');
+    fiveDay.setAttribute('style', 'visibility: visible');
+
+    localStorage.setItem('lastCity', citySearched);
+}
+
+function init() {
+    var lastCity = localStorage.getItem('lastCity');
+
+    if (lastCity != null) {
+        renderWeather(lastCity);
+    }
 }
