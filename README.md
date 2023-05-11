@@ -1,29 +1,28 @@
 # WeatherForecast
 
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
+## Description
 
-THEN I am presented with current and future conditions for that city and that city is added to the search history
+A simple weather app that searches current weather and a five day forecast for cities using server side APIs.
 
-WHEN I view current weather conditions for that city
+## Installation
 
-THEN I am presented with the city name, the date, an icon representation of 
-weather conditions, the temperature, the humidity, and the the wind speed
+Once the repo has been downloaded, you can open the webpage by opening on the index.html file.
 
-WHEN I view future weather conditions for that city
+## Usage
 
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+https://monstergog.github.io/WeatherForecast/
 
-WHEN I click on a city in the search history
+After opening the webpage, submit an API key for OpenWeatherMap when prompted. Once the page is loaded, search for a city using the search bar to view its weather conditions. If you have already searched something before, you can also click on the buttons labled with cities to look at their weather conditions.
 
-THEN I am again presented with current and future conditions for that city
-
-Uses the OpenWeather API to retrieve weather data
-
-Uses localStorage to store persistent data
+![alt text](assets/images/screenshot.png)
 
 
-![](assets/images/mockup.png)
+## License
+
+N/A
+
+---
+
 
 LET INSTRUCTOR KNOW IN SUBMISSION FORM:
 Many logged commits missing becuase I deleted the original repo and started a new one to try working with .gitignore after copy pasting code from the old repo.
