@@ -9,26 +9,36 @@ var temp;
 var wind;
 var humid;
 
-fetch(currentWeather + 'lat=' + '33.44' + '&lon=' + '-94.04' + '&appid=' + weatherAPIKey)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
+var submitCity = document.querySelector('form');
+var cityInput = document.querySelector('#submitCity')
+
+submitCity.addEventListener('submit', function(event) {
+    event.preventDefault();
+    city = cityInput.value;
+    console.log(city);
+    if (city != '') {
+        fetch(geocode + city + '&limit=1&appid=' + weatherAPIKey)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        });
+    }
 });
 
-fetch(fiveDayForecast + 'lat=' + '33.44' + '&lon=' + '-94.04' + '&appid=' + weatherAPIKey)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-});
+// fetch(currentWeather + 'lat=' + '33.44' + '&lon=' + '-94.04' + '&appid=' + weatherAPIKey)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+// });
 
-fetch(geocode + 'Thousand Oaks' + '&limit=1&appid=' + weatherAPIKey)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-});
+// fetch(fiveDayForecast + 'lat=' + '33.44' + '&lon=' + '-94.04' + '&appid=' + weatherAPIKey)
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+// });
