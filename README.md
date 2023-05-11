@@ -22,7 +22,3 @@ After opening the webpage, submit an API key for OpenWeatherMap when prompted. O
 N/A
 
 ---
-
-
-LET INSTRUCTOR KNOW IN SUBMISSION FORM:
-Many logged commits missing becuase I deleted the original repo and started a new one to try working with .gitignore after copy pasting code from the old repo.
