@@ -91,8 +91,18 @@ h4 {
 }
 
 h6 {
-    text-align: right;
     padding-right: 1%;
+    text-align: right;
+}
+
+#clear {
+    background-color: #ff0000;
+    color: white;
+    width: 150px;
+}
+
+#clear:hover {
+    background-color: #b30000;
 }
 
 /* Media query and adjusting elements according to screen size */
