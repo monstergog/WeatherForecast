@@ -24,3 +24,6 @@ Uses localStorage to store persistent data
 
 
 ![](assets/images/mockup.png)
+
+LET INSTRUCTOR KNOW IN SUBMISSION FORM:
+Many logged commits missing becuase I deleted the original repo and started a new one to try working with .gitignore after copy pasting code from the old repo.
