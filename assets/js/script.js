@@ -17,14 +17,15 @@ var searchHistory = [];
 
 init();
 
+// Delegated event listener for search history buttons
 search.addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON') {
         citySearched = event.target.innerHTML;
-        console.log(citySearched);
         renderWeather(citySearched, false);
     }
 });
 
+// Event listener for city search form submission 
 submitCity.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -34,6 +35,7 @@ submitCity.addEventListener('submit', function(event) {
     }
 });
 
+// Event listener to clear search history (incomplete)
 // clear.addEventListener('click', function() {
 //     if (confirm('Are you sure you want to clear your city search history?')) {
 //         searchHistory = null;
@@ -41,7 +43,9 @@ submitCity.addEventListener('submit', function(event) {
 //     }
 // });
 
+// Function to handle weather API call, parse data, and render it to the screen
 async function renderWeather(city, newSearch) {
+    // Fetches geocode data from the searched city
     await fetch(geocode + city + '&limit=1&appid=' + weatherAPIKey)
     .then(function (response) {
         return response.json();
@@ -52,6 +56,7 @@ async function renderWeather(city, newSearch) {
         longitude = data[0].lon;
     });
 
+    // Fetches current weather using latitude and longitude data from geocode data
     await fetch(currentWeather + '&lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherAPIKey)
     .then(function (response) {
         return response.json();
@@ -64,6 +69,7 @@ async function renderWeather(city, newSearch) {
         today.children[4].textContent = `Humidity: ${data.main.humidity} %`;
     });
     
+    // Fetches next 5 day forecast using latitude and longitude data from geocode data
     await fetch(fiveDayForecast + '&lat=' + latitude + '&lon=' + longitude + '&appid=' + weatherAPIKey)
     .then(function (response) {
         return response.json();
@@ -82,6 +88,7 @@ async function renderWeather(city, newSearch) {
     h4.setAttribute('style', 'visibility: visible');
     fiveDay.setAttribute('style', 'visibility: visible');
 
+    // Append new searches to the search history and updates local storage
     if (newSearch === true) {
         var button = document.createElement('button');
         button.textContent = citySearched;
@@ -94,6 +101,7 @@ async function renderWeather(city, newSearch) {
 
 }
 
+// Initializes the webpage with previous searches stored in local storage
 function init() {
     var storedSearches = JSON.parse(localStorage.getItem('searchHistory'));
 
