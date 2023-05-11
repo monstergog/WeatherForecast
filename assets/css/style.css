@@ -59,10 +59,6 @@ section {
     flex: 4 5;
 }
 
-h3::after, .icon::after {
-    content: '\1F31E';
-}
-
 section > * {
     margin: 10px;
 }
